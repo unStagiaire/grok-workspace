@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Révisions Histoire - Les Régimes Totalitaires</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#ef4444',
+                            blue: '#3b82f6',
+                            purple: '#8b5cf6',
+                            dark: '#0f172a',
+                            card: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        /* Style des cartes flashcard */
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans flex flex-col antialiased selection:bg-red-500 selection:text-white">
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-50 glass border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="p-2 bg-red-600/20 text-red-500 rounded-lg border border-red-500/30">
+                    <i data-lucide="book-open" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight text-white">Histoire Terminale</h1>
+                    <p class="text-xs text-slate-400">Chapitres 1 & 2 : Crise de 1929 et Régimes Totalitaires</p>
+                </div>
+            </div>
+            
+            <button onclick="copyCode()" class="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs px-3 py-2 rounded-lg border border-slate-700 transition">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+                <span class="hidden sm:inline">Copier le code</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Navigation par Onglets -->
+    <div class="bg-slate-900/80 border-b border-slate-800 sticky top-[61px] z-40 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-2 flex space-x-1 overflow-x-auto py-2 scrollbar-none">
+            <button onclick="switchTab('chapitre1')" id="tab-chapitre1" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition flex items-center space-x-2 whitespace-nowrap bg-red-600 text-white">
+                <i data-lucide="trending-down" class="w-4 h-4"></i>
+                <span>Chapitre 1 : Crise 1929</span>
+            </button>
+            <button onclick="switchTab('chapitre2')" id="tab-chapitre2" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center space-x-2 whitespace-nowrap">
+                <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                <span>Chapitre 2 : Totalitarismes</span>
+            </button>
+            <button onclick="switchTab('comparatif')" id="tab-comparatif" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center space-x-2 whitespace-nowrap">
+                <i data-lucide="columns" class="w-4 h-4"></i>
+                <span>Tableau Comparatif</span>
+            </button>
+            <button onclick="switchTab('flashcards')" id="tab-flashcards" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center space-x-2 whitespace-nowrap">
+                <i data-lucide="layers" class="w-4 h-4"></i>
+                <span>Flashcards Mnémo</span>
+            </button>
+            <button onclick="switchTab('quiz')" id="tab-quiz" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center space-x-2 whitespace-nowrap">
+                <i data-lucide="help-circle" class="w-4 h-4"></i>
+                <span>Quiz d'Évaluation</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+
+        <!-- SECTION CHAPITRE 1 -->
+        <section id="sec-chapitre1" class="tab-content space-y-6">
+            <div class="glass p-6 rounded-2xl border-l-4 border-l-amber-500">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">Cours & Activité (10h30 à 12h00)</span>
+                    <span class="text-xs text-slate-400">Thème 1 : Fragilité des démocraties, totalitarisme et 2GM</span>
+                </div>
+                <h2 class="text-2xl font-bold text-white mb-2">Chapitre 1 – L'impact de la crise de 1929 : déséquilibres économiques et sociaux</h2>
+                <p class="text-slate-300 leading-relaxed">
+                    La Grande Dépression issue du krach boursier de Wall Street en 1929 provoque un ébranlement systémique mondial[span_0](start_span)[span_0](end_span). En déstabilisant l'économie globale, elle fragilise les structures des démocraties libérales déjà fragilisées par le choc de la Première Guerre mondiale[span_1](start_span)[span_1](end_span).
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass p-6 rounded-2xl hover:border-red-500/40 transition">
+                    <div class="p-3 bg-red-500/10 text-red-400 rounded-xl w-fit mb-4">
+                        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">1. Destabilisation des Démocraties</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        La crise économique entraîne une aggravation de la crise de confiance dans le modèle libéral[span_2](start_span)[span_2](end_span). Elle ravive les traumatismes et les conséquences sociales non résolues de la 1GM, alimentant la montée des partis et ligues d'extrême droite en Europe[span_3](start_span)[span_3](end_span).
+                    </p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl hover:border-blue-500/40 transition">
+                    <div class="p-3 bg-blue-500/10 text-blue-400 rounded-xl w-fit mb-4">
+                        <i data-lucide="building-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">2. Renforcement du rôle de l'État</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Face aux faillites et au chômage de masse, le dogme du libre-échange s'effondre. On assiste à un interventionnisme massif de l'État dans l'économie via des politiques dirigistes (grands travaux, contrôle de la production, autarcie)[span_4](start_span)[span_4](end_span).
+                    </p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl hover:border-purple-500/40 transition">
+                    <div class="p-3 bg-purple-500/10 text-purple-400 rounded-xl w-fit mb-4">
+                        <i data-lucide="globe-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">3. Émergence de l'Autoritarisme</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        La crise constitue l'un des catalyseurs majeurs de l'émergence des régimes autoritaires et totalitaires à l'échelle mondiale, proposant un contre-modèle radical aux démocraties parlementaires jugées inefficaces[span_5](start_span)[span_5](end_span).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Conclusion Chapitre 1 -->
+            <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl">
+                <h4 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-1">Conclusion du Chapitre 1</h4>
+                <p class="text-sm text-slate-300">
+                    La crise de 1929 n'est pas qu'une crise financière ; elle est le carburant politique qui déstabilise les démocraties libérales et favorise la prise de pouvoir par des régimes dictatoriaux promettant l'ordre et le redressement économique[span_6](start_span)[span_6](end_span).
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION CHAPITRE 2 -->
+        <section id="sec-chapitre2" class="tab-content hidden space-y-8">
+            
+            <!-- Intro & Raymond Aron -->
+            <div class="glass p-6 rounded-2xl border-l-4 border-l-red-500">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 mb-3 inline-block">Définition Fondamentale</span>
+                <h2 class="text-2xl font-bold text-white mb-3">Chapitre 2 – Les Régimes Totalitaires</h2>
+                <blockquote class="text-slate-300 italic border-l-2 border-slate-700 pl-4 py-1 mb-4 text-sm sm:text-base">
+                    « Un régime totalitaire est un régime dictatorial qui a une emprise sur toute la société (même la sphère privée). » 
+                    <span class="block text-xs font-normal text-slate-500 mt-1">— Raymond Aron[span_7](start_span)[span_7](end_span)</span>
+                </blockquote>
+                
+                <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider mb-3">Les 5 Caractéristiques Essentielles de Raymond Aron :</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                    <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs space-y-1">
+                        <span class="text-red-400 font-bold block">1. Parti Unique & Chef</span>
+                        <p class="text-slate-400">Appareil d'État contrôlé par un parti unique et un chef charismatique (culte de la personnalité) créant un lien direct avec la population[span_8](start_span)[span_8](end_span).</p>
+                    </div>
+                    <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs space-y-1">
+                        <span class="text-red-400 font-bold block">2. Idéologie & Homme Nouveau</span>
+                        <p class="text-slate-400">Idéologie officielle promettant la création d'un homme nouveau, exigeant un encadrement et embrigadement total[span_9](start_span)[span_9](end_span).</p>
+                    </div>
+                    <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs space-y-1">
+                        <span class="text-red-400 font-bold block">3. Terreur Policière</span>
+                        <p class="text-slate-400">Appareil policier d'État recourant à la terreur de masse, ne se limitant pas aux seuls opposants politiques[span_10](start_span)[span_10](end_span).</p>
+                    </div>
+                    <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs space-y-1">
+                        <span class="text-red-400 font-bold block">4. Monopole des Médias</span>
+                        <p class="text-slate-400">Monopole absolu des moyens de communication de masse et contrôle de l'information (propagande / censure)[span_11](start_span)[span_11](end_span).</p>
+                    </div>
+                    <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs space-y-1">
+                        <span class="text-red-400 font-bold block">5. Économie Dirigiste</span>
+                        <p class="text-slate-400">Dirigisme économique visant l'autarcie, rendu possible seulement par l'élargissement du territoire (militarisation & conquête)[span_12](start_span)[span_12](end_span).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partie I : Idéologies et Projets -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-white flex items-center space-x-2">
+                    <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-red-600 text-xs">I</span>
+                    <span>Une Idéologie Incarnée et Mise en Pratique</span>
+                </h3>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- URSS -->
+                    <div class="glass p-5 rounded-xl border-t-4 border-t-red-600 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-bold text-red-400">URSS Stalinienne</h4>
+                            <span class="text-[10px] bg-red-950 text-red-300 px-2 py-0.5 rounded border border-red-800">Communisme</span>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                            <li><strong class="text-white">Idéologie :</strong> Marxisme-léninisme, communisme internationaliste, dictature du prolétariat[span_13](start_span)[span_13](end_span).</li>
+                            <li><strong class="text-white">Homme nouveau :</strong> Un travailleur dévoué (ouvrier ou kolkhozienne)[span_14](start_span)[span_14](end_span).</li>
+                            <li><strong class="text-white">Grands textes / Lois :</strong> Collectivisation des terres (1929), nationalisation de l'industrie, lois de planification (plans quinquennaux)[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span).</li>
+                            <li><strong class="text-white">Arrivée au pouvoir :</strong> Révolution bolchevique (1917), création URSS (1922), éviction des trotskystes (1927) $\rightarrow$ Staline seul au pouvoir[span_17](start_span)[span_17](end_span).</li>
+                            <li><strong class="text-white">Parti unique :</strong> PCUS (créé en 1918, unique en 1923)[span_18](start_span)[span_18](end_span)[span_19](start_span)[span_19](end_span).</li>
+                            <li><strong class="text-white">Chef :</strong> Joseph Staline, le <em>Vodj</em> (« Petit père du peuple »)[span_20](start_span)[span_20](end_span)[span_21](start_span)[span_21](end_span).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Italie -->
+                    <div class="glass p-5 rounded-xl border-t-4 border-t-green-600 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-bold text-green-400">Italie Fasciste</h4>
+                            <span class="text-[10px] bg-green-950 text-green-300 px-2 py-0.5 rounded border border-green-800">Fascisme</span>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                            <li><strong class="text-white">Idéologie :</strong> Fascisme, ultra-nationalisme, mythologie de la Rome antique, l'État est au centre de tout[span_22](start_span)[span_22](end_span)[span_23](start_span)[span_23](end_span).</li>
+                            <li><strong class="text-white">Homme nouveau :</strong> Un homme fort, athlétique, discipliné, au service de sa patrie[span_24](start_span)[span_24](end_span)[span_25](start_span)[span_25](end_span).</li>
+                            <li><strong class="text-white">Grands textes / Lois :</strong> Lois fascistissimes (1925-1926) instaurant l'État autoritaire ; lois antisémites (1937-1938) marquant le rapprochement avec l'Allemagne[span_26](start_span)[span_26](end_span)[span_27](start_span)[span_27](end_span).</li>
+                            <li><strong class="text-white">Arrivée au pouvoir :</strong> Marche sur Rome (oct. 1922) avec 26 000 fascistes ; nommé par le roi Victor-Emmanuel III (doit composer avec le roi)[span_28](start_span)[span_28](end_span)[span_29](start_span)[span_29](end_span).</li>
+                            <li><strong class="text-white">Parti unique :</strong> Parti National Fasciste (créé en 1921, unique en 1925-1926)[span_30](start_span)[span_30](end_span)[span_31](start_span)[span_31](end_span).</li>
+                            <li><strong class="text-white">Chef :</strong> Benito Mussolini, le <em>Duce</em> (« le Guide »)[span_32](start_span)[span_32](end_span)[span_33](start_span)[span_33](end_span).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Allemagne -->
+                    <div class="glass p-5 rounded-xl border-t-4 border-t-amber-600 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-bold text-amber-400">Allemagne Nazie</h4>
+                            <span class="text-[10px] bg-amber-950 text-amber-300 px-2 py-0.5 rounded border border-amber-800">Nazisme</span>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                            <li><strong class="text-white">Idéologie :</strong> Nazisme (nationaliste, raciste, antisémite, anticommuniste), doctrine de l'« espace vital » (<em>Lebensraum</em>) et pangermanisme[span_34](start_span)[span_34](end_span)[span_35](start_span)[span_35](end_span).</li>
+                            <li><strong class="text-white">Homme nouveau :</strong> Un Aryen (blond aux yeux bleus, guerrier et militaire)[span_36](start_span)[span_36](end_span).</li>
+                            <li><strong class="text-white">Grands textes / Lois :</strong> <em>Mein Kampf</em>, Lois de Nuremberg (15/09/1935) retirant la citoyenneté aux Juifs, lois de 1938 éliminant les Juifs de l'économie[span_37](start_span)[span_37](end_span)[span_38](start_span)[span_38](end_span)[span_39](start_span)[span_39](end_span).</li>
+                            <li><strong class="text-white">Arrivée au pouvoir :</strong> Succès aux élections (1932), nommé Chancelier le 30 janv 1933 par Hindenburg. Mort d'Hindenburg (2 août 1934) $\rightarrow$ Hitler Führer et seul au pouvoir[span_40](start_span)[span_40](end_span)[span_41](start_span)[span_41](end_span).</li>
+                            <li><strong class="text-white">Parti unique :</strong> NSDAP (Parti nazi, créé en 1920, unique en 1933)[span_42](start_span)[span_42](end_span)[span_43](start_span)[span_43](end_span).</li>
+                            <li><strong class="text-white">Chef :</strong> Adolf Hitler, le <em>Führer</em> (« le Guide »)[span_44](start_span)[span_44](end_span)[span_45](start_span)[span_45](end_span).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Économie, Embrigadement et Société -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Économie Dirigiste -->
+                <div class="glass p-5 rounded-xl space-y-3">
+                    <h4 class="font-bold text-white flex items-center space-x-2">
+                        <i data-lucide="factory" class="w-5 h-5 text-amber-500"></i>
+                        <span>Économie Dirigiste et Autarcie</span>
+                    </h4>
+                    <ul class="text-xs text-slate-300 space-y-2">
+                        <li class="bg-slate-900/60 p-2.5 rounded border border-slate-800">
+                            <strong class="text-red-400 block mb-0.5">URSS :</strong>
+                            Collectivisation forcée des terres agricoles (extermination/déportation des <em>koulaks</em>), regroupement dans les <em>kolkhozes</em>, nationalisation de l'industrie pour faire de l'URSS une superpuissance industrielle[span_46](start_span)[span_46](end_span)[span_47](start_span)[span_47](end_span).
+                        </li>
+                        <li class="bg-slate-900/60 p-2.5 rounded border border-slate-800">
+                            <strong class="text-green-400 block mb-0.5">Italie :</strong>
+                            Politique de grands travaux (assèchement des marais du Latium, création de villes nouvelles), « guerre du blé » pour renforcer le marché intérieur et viser l'autarcie[span_48](start_span)[span_48](end_span)[span_49](start_span)[span_49](end_span).
+                        </li>
+                        <li class="bg-slate-900/60 p-2.5 rounded border border-slate-800">
+                            <strong class="text-amber-400 block mb-0.5">Allemagne :</strong>
+                            Militarisation massive de l'économie et réarmement (industrie de la Ruhr), spoliation et élimination des Juifs de la vie économique (1938) pour préparer la conquête de l'espace vital[span_50](start_span)[span_50](end_span)[span_51](start_span)[span_51](end_span).
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Embrigadement & Propagande -->
+                <div class="glass p-5 rounded-xl space-y-3">
+                    <h4 class="font-bold text-white flex items-center space-x-2">
+                        <i data-lucide="users" class="w-5 h-5 text-purple-500"></i>
+                        <span>Embrigadement et Propagande</span>
+                    </h4>
+                    <div class="space-y-2 text-xs">
+                        <div class="bg-slate-900/60 p-2.5 rounded border border-slate-800">
+                            <strong class="text-slate-200 block mb-1">Jeunesse :</strong>
+                            <ul class="list-disc list-inside text-slate-400 space-y-0.5">
+                                > URSS : <strong>Komsomol</strong> (formation marxiste-léniniste, alphabétisation)[span_52](start_span)[span_52](end_span)[span_53](start_span)[span_53](end_span).<br>
+                                > Italie : <strong>Balillas</strong> (jeunesses mussoliniennes, discipline militaire, adoration du Duce)[span_54](start_span)[span_54](end_span)[span_55](start_span)[span_55](end_span).<br>
+                                > Allemagne : <strong>Jeunesses hitlériennes</strong> (exercice physique, pas d'éducation intellectuelle pour éviter toute remise en question)[span_56](start_span)[span_56](end_span)[span_57](start_span)[span_57](end_span).
+                            </ul>
+                        </div>
+                        <div class="bg-slate-900/60 p-2.5 rounded border border-slate-800">
+                            <strong class="text-slate-200 block mb-1">Loisirs & Médias :</strong>
+                            <ul class="list-disc list-inside text-slate-400 space-y-0.5">
+                                > URSS : Propagande du <strong>Stakhanovisme</strong> (culte de l'ouvrier modèle)[span_58](start_span)[span_58](end_span)[span_59](start_span)[span_59](end_span).<br>
+                                > Italie : <strong>Opera Nazionale Dopolavoro</strong> (organisation d'État pour les loisirs, limitée par le Roi et le Pape)[span_60](start_span)[span_60](end_span)[span_61](start_span)[span_61](end_span).<br>
+                                > Allemagne : Autodafés, propagande raciale, <strong>JO de Berlin (1936)</strong> (limité par les victoires de Jesse Owens, athlète afro-américain)[span_62](start_span)[span_62](end_span)[span_63](start_span)[span_63](end_span)[span_64](start_span)[span_64](end_span).
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partie II : Violence, Terreur et Résistance -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-white flex items-center space-x-2">
+                    <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-red-600 text-xs">II</span>
+                    <span>Des Régimes qui s'Enracinent par la Violence et la Terreur</span>
+                </h3>
+
+                <!-- Polices et Milices -->
+                <div class="glass p-6 rounded-2xl space-y-4">
+                    <h4 class="font-bold text-red-400 text-sm uppercase tracking-wider">A. Police Politique et Milices Paramilitaires</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Pour asseoir leur pouvoir, ces régimes légalisent la violence d'État. Les partis uniques s'appuient sur des milices armées, puis mettent en place des polices politiques secrètes pour traquer, arrêter et déporter les opposants dans des camps de travail[span_65](start_span)[span_65](end_span).
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-3 gap-4 text-xs">
+                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-1.5">
+                            <span class="font-bold text-green-400 block text-sm">Italie</span>
+                            <p><strong class="text-white">Milices :</strong> Chemises noires / <em>Squadristes</em> (expéditions punitives dans les campagnes)[span_66](start_span)[span_66](end_span).</p>
+                            <p><strong class="text-white">Police Politique :</strong> <strong>OVRA</strong> (créée en 1927, 11 inspectorats, réseau d'informateurs)[span_67](start_span)[span_67](end_span).</p>
+                            <p class="text-slate-400">Envoi des opposants en relégation ou camps (ex: îles Lipari)[span_68](start_span)[span_68](end_span).</p>
+                        </div>
+                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-1.5">
+                            <span class="font-bold text-amber-400 block text-sm">Allemagne</span>
+                            <p><strong class="text-white">Milices :</strong> <strong>SA</strong> (chemises brunes) créées en 1921, puis <strong>SS</strong> (escadron de protection)[span_69](start_span)[span_69](end_span).</p>
+                            <p><strong class="text-white">Police Politique :</strong> <strong>Gestapo</strong> (créée en 1933 par Göring, dirigée par Himmler)[span_70](start_span)[span_70](end_span).</p>
+                            <p class="text-slate-400">Arrestations arbitraires, exécutions et déportation en camps de concentration[span_71](start_span)[span_71](end_span).</p>
+                        </div>
+                        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-1.5">
+                            <span class="font-bold text-red-400 block text-sm">URSS</span>
+                            <p><strong class="text-white">Police Politique :</strong> Du <strong>Gépéou</strong> (1922-1934) au <strong>NKVD</strong> (Commissariat du peuple aux Affaires intérieures)[span_72](start_span)[span_72](end_span).</p>
+                            <p class="text-slate-400">Climat de paranoïa d'État contre les « ennemis de la Révolution ». Envoi massif au <strong>Goulag</strong> (camps de travail forcé)[span_73](start_span)[span_73](end_span).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FOCUS SPÉCIAL : Événements de Terreur (La Nuit de Cristal, etc.) -->
+                <div class="glass p-6 rounded-2xl border border-red-500/30 space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="skull" class="w-6 h-6 text-red-500"></i>
+                        <h4 class="font-bold text-white text-lg">B. L'Imposition de la Terreur et Crimes de Masse (Les 3 Événements Majeurs)</h4>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-4 text-xs">
+                        <!-- Nuit de Cristal -->
+                        <div class="bg-red-950/30 border border-red-800/40 p-4 rounded-xl space-y-2">
+                            <span class="px-2 py-0.5 bg-red-600 text-white font-bold rounded text-[10px]">Allemagne - Nov 1938</span>
+                            <h5 class="font-bold text-white text-sm">La Nuit de Cristal</h5>
+                            <p class="text-slate-300 leading-relaxed">
+                                Pogrom antisémite d'État déclenché par le régime nazi dans la nuit du 9 au 10 novembre 1938[span_74](start_span)[span_74](end_span). Synagogues brûlées, commerces juifs détruits, dizaines de Juifs assassinés et plus de 30 000 déportés en camps de concentration. Marquage du passage de la discrimination légale à la violence physique systématique[span_75](start_span)[span_75](end_span)[span_76](start_span)[span_76](end_span).
+                            </p>
+                        </div>
+
+                        <!-- La Grande Terreur -->
+                        <div class="bg-red-950/30 border border-red-800/40 p-4 rounded-xl space-y-2">
+                            <span class="px-2 py-0.5 bg-red-600 text-white font-bold rounded text-[10px]">URSS - 1937-1938</span>
+                            <h5 class="font-bold text-white text-sm">La Grande Terreur</h5>
+                            <p class="text-slate-300 leading-relaxed">
+                                Campagne massive de purges politiques et d'exécutions organisée par Staline et le NKVD[span_77](start_span)[span_77](end_span)[span_78](start_span)[span_78](end_span). Élimination systématique des cadres du Parti communiste, des officiers de l'Armée rouge et des citoyens ordinaires coupables de réelles ou prétendantes oppositions (plus de 750 000 exécutions)[span_79](start_span)[span_79](end_span)[span_80](start_span)[span_80](end_span).
+                            </p>
+                        </div>
+
+                        <!-- Massacre de Graziani -->
+                        <div class="bg-red-950/30 border border-red-800/40 p-4 rounded-xl space-y-2">
+                            <span class="px-2 py-0.5 bg-red-600 text-white font-bold rounded text-[10px]">Italie / Éthiopie - Oct 1937</span>
+                            <h5 class="font-bold text-white text-sm">Le Massacre de Graziani</h5>
+                            <p class="text-slate-300 leading-relaxed">
+                                Politique d'anéantissement et massacres de masse perpétrés par l'armée fasciste italienne (sous les ordres du maréchal Rodolfo Graziani) contre les populations civiles en Éthiopie occupée, matérialisant la terreur coloniale fasciste[span_81](start_span)[span_81](end_span).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Purges internes et famine -->
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 text-xs space-y-2">
+                        <h5 class="font-bold text-amber-400">Autres Formes de Terreur et Purges Interne :</h5>
+                        <ul class="list-disc list-inside text-slate-300 space-y-1">
+                            <li><strong>Nuit des Longs Couteaux (29-30 juin 1934) :</strong> Hitler fait assassiner les dirigeants de sa propre milice (SA), dont Ernst Röhm, par les SS pour éliminer la contestation interne et rassurer l'armée régulière[span_82](start_span)[span_82](end_span).</li>
+                            <li><strong>Famine organisée en Ukraine (Holodomor, 1932-1933) :</strong> Famine provoquée sciemment par le pouvoir stalinien pour briser la résistance des paysans contre la collectivisation[span_83](start_span)[span_83](end_span).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Enracinement Incomplet & Résistances -->
+                <div class="glass p-6 rounded-2xl space-y-3">
+                    <h4 class="font-bold text-slate-200 text-sm uppercase tracking-wider">C. Un Enracinement Incomplet (Les Résistances)</h4>
+                    <p class="text-xs text-slate-400">
+                        Malgré le monopole des médias, l'embrigadement et la terreur, le contrôle des sociétés n'est jamais total :
+                    </p>
+                    <div class="grid sm:grid-cols-3 gap-3 text-xs">
+                        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                            <strong class="text-green-400 block mb-1">En Italie :</strong>
+                            Oppositions persistantes dans le Nord du pays (villes et « campagnes rouges »)[span_84](start_span)[span_84](end_span). Pouvoir du Duce limité par la présence de la Monarchie (le Roi) et de l'Église (le Pape)[span_85](start_span)[span_85](end_span)[span_86](start_span)[span_86](end_span).
+                        </div>
+                        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                            <strong class="text-amber-400 block mb-1">En Allemagne :</strong>
+                            Résistances dans toutes les catégories socio-économiques[span_87](start_span)[span_87](end_span). Opposition au sein même de l'armée de métier (ex: le putsch militaire raté du maréchal Erwin von Witzleben)[span_88](start_span)[span_88](end_span).
+                        </div>
+                        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                            <strong class="text-red-400 block mb-1">En URSS :</strong>
+                            Résistance active (révoltes armées de paysans) et passive (baisse volontaire du rendement du travail)[span_89](start_span)[span_89](end_span). La culture et la foi traditionnelles perdurent dans les campagnes grâce aux grands-parents[span_90](start_span)[span_90](end_span).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION TABLEAU COMPARATIF RESPONSIVE -->
+        <section id="sec-comparatif" class="tab-content hidden space-y-6">
+            <div class="glass p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-white">Tableau Synthétique Comparatif</h2>
+                    <p class="text-xs text-slate-400">Sur smartphone, le tableau se transforme automatiquement en cartes adaptées à l'écran[span_91](start_span)[span_91](end_span).</p>
+                </div>
+                <!-- Filtre par pays sur mobile -->
+                <div class="flex space-x-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
+                    <button onclick="filterTable('all')" class="filter-btn text-xs px-3 py-1.5 rounded-lg bg-red-600 text-white font-medium">Tous</button>
+                    <button onclick="filterTable('italie')" class="filter-btn text-xs px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">Italie</button>
+                    <button onclick="filterTable('allemagne')" class="filter-btn text-xs px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">Allemagne</button>
+                    <button onclick="filterTable('urss')" class="filter-btn text-xs px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">URSS</button>
+                </div>
+            </div>
+
+            <!-- Version CARTE (Visible sur Mobile / Petits écrans) -->
+            <div class="block lg:hidden space-y-4">
+                <!-- Italie Mobile Card -->
+                <div class="comp-card card-italie glass p-5 rounded-2xl border-l-4 border-l-green-500 space-y-3">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <h3 class="font-bold text-lg text-green-400">Italie Fasciste</h3>
+                        <span class="text-xs text-slate-400 font-mono">1922 - 1945</span>
+                    </div>
+                    <div class="space-y-2 text-xs">
+                        <div><strong class="text-slate-300">Idéologie :</strong> Fascisme, État au centre, ultra-nationalisme[span_92](start_span)[span_92](end_span)[span_93](start_span)[span_93](end_span).</div>
+                        <div><strong class="text-slate-300">Homme nouveau :</strong> Athlétique, discipliné, dévoué à la patrie[span_94](start_span)[span_94](end_span)[span_95](start_span)[span_95](end_span).</div>
+                        <div><strong class="text-slate-300">Arrivée au pouvoir :</strong> Marche sur Rome (1922)[span_96](start_span)[span_96](end_span)[span_97](start_span)[span_97](end_span).</div>
+                        <div><strong class="text-slate-300">Parti unique :</strong> Parti National Fasciste (1921/1925)[span_98](start_span)[span_98](end_span)[span_99](start_span)[span_99](end_span).</div>
+                        <div><strong class="text-slate-300">Chef :</strong> Mussolini (<em>Le Duce</em>)[span_100](start_span)[span_100](end_span)[span_101](start_span)[span_101](end_span).</div>
+                        <div><strong class="text-slate-300">Police / Milice :</strong> OVRA / Squadristes (Chemises noires)[span_102](start_span)[span_102](end_span).</div>
+                        <div><strong class="text-slate-300">Jeunesse & Loisirs :</strong> Balillas / Opera Nazionale Dopolavoro[span_103](start_span)[span_103](end_span)[span_104](start_span)[span_104](end_span).</div>
+                        <div><strong class="text-slate-300">Événement Terreur :</strong> Massacre de Graziani en Éthiopie (1937)[span_105](start_span)[span_105](end_span).</div>
+                    </div>
+                </div>
+
+                <!-- Allemagne Mobile Card -->
+                <div class="comp-card card-allemagne glass p-5 rounded-2xl border-l-4 border-l-amber-500 space-y-3">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <h3 class="font-bold text-lg text-amber-400">Allemagne Nazie</h3>
+                        <span class="text-xs text-slate-400 font-mono">1933 - 1945</span>
+                    </div>
+                    <div class="space-y-2 text-xs">
+                        <div><strong class="text-slate-300">Idéologie :</strong> Nazisme, racisme, antisémitisme, espace vital[span_106](start_span)[span_106](end_span)[span_107](start_span)[span_107](end_span).</div>
+                        <div><strong class="text-slate-300">Homme nouveau :</strong> Aryen (guerrier blond aux yeux bleus)[span_108](start_span)[span_108](end_span).</div>
+                        <div><strong class="text-slate-300">Arrivée au pouvoir :</strong> Élections 1932, Chancelier 1933, Führer 1934[span_109](start_span)[span_109](end_span)[span_110](start_span)[span_110](end_span).</div>
+                        <div><strong class="text-slate-300">Parti unique :</strong> NSDAP / Parti nazi (1920/1933)[span_111](start_span)[span_111](end_span)[span_112](start_span)[span_112](end_span).</div>
+                        <div><strong class="text-slate-300">Chef :</strong> Adolf Hitler (<em>Le Führer</em>)[span_113](start_span)[span_113](end_span)[span_114](start_span)[span_114](end_span).</div>
+                        <div><strong class="text-slate-300">Police / Milice :</strong> Gestapo / SA et SS[span_115](start_span)[span_115](end_span).</div>
+                        <div><strong class="text-slate-300">Jeunesse & Loisirs :</strong> Jeunesses Hitlériennes / Autodafés, JO 1936[span_116](start_span)[span_116](end_span)[span_117](start_span)[span_117](end_span)[span_118](start_span)[span_118](end_span).</div>
+                        <div><strong class="text-slate-300">Événement Terreur :</strong> Nuit des Longs Couteaux (1934), Nuit de Cristal (1938)[span_119](start_span)[span_119](end_span)[span_120](start_span)[span_120](end_span).</div>
+                    </div>
+                </div>
+
+                <!-- URSS Mobile Card -->
+                <div class="comp-card card-urss glass p-5 rounded-2xl border-l-4 border-l-red-500 space-y-3">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <h3 class="font-bold text-lg text-red-400">URSS Stalinienne</h3>
+                        <span class="text-xs text-slate-400 font-mono">1927 - 1953</span>
+                    </div>
+                    <div class="space-y-2 text-xs">
+                        <div><strong class="text-slate-300">Idéologie :</strong> Marxisme-léninisme, dictature du prolétariat[span_121](start_span)[span_121](end_span).</div>
+                        <div><strong class="text-slate-300">Homme nouveau :</strong> Travailleur (ouvrier / kolkhozienne)[span_122](start_span)[span_122](end_span).</div>
+                        <div><strong class="text-slate-300">Arrivée au pouvoir :</strong> Révolution 1917, éviction trotskystes 1927[span_123](start_span)[span_123](end_span).</div>
+                        <div><strong class="text-slate-300">Parti unique :</strong> PCUS (1918/1923)[span_124](start_span)[span_124](end_span)[span_125](start_span)[span_125](end_span).</div>
+                        <div><strong class="text-slate-300">Chef :</strong> Staline (<em>Le Vodj / Petit Père des Peuples</em>)[span_126](start_span)[span_126](end_span)[span_127](start_span)[span_127](end_span).</div>
+                        <div><strong class="text-slate-300">Police / Milice :</strong> Gépéou puis NKVD[span_128](start_span)[span_128](end_span).</div>
+                        <div><strong class="text-slate-300">Jeunesse & Loisirs :</strong> Komsomol / Stakhanovisme[span_129](start_span)[span_129](end_span)[span_130](start_span)[span_130](end_span)[span_131](start_span)[span_131](end_span).</div>
+                        <div><strong class="text-slate-300">Événement Terreur :</strong> Famine en Ukraine (1932-33), La Grande Terreur (1937-38)[span_132](start_span)[span_132](end_span)[span_133](start_span)[span_133](end_span).</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Version TABLEAU GRAND ÉCRAN (Visible sur Desktop) -->
+            <div class="hidden lg:block overflow-x-auto glass rounded-2xl border border-slate-800">
+                <table class="w-full text-left text-xs text-slate-300">
+                    <thead class="bg-slate-900 text-slate-200 uppercase font-mono text-[11px] border-b border-slate-800">
+                        <tr>
+                            <th class="p-4">Critère</th>
+                            <th class="p-4 text-green-400">Italie Fasciste</th>
+                            <th class="p-4 text-amber-400">Allemagne Nazie</th>
+                            <th class="p-4 text-red-400">URSS Stalinienne</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800/60">
+                        <tr>
+                            <td class="p-4 font-bold text-white">Idéologie & Homme Nouveau</td>
+                            <td class="p-4">Fascisme (État au centre). Homme fort, athlétique et dévoué[span_134](start_span)[span_134](end_span)[span_135](start_span)[span_135](end_span).</td>
+                            <td class="p-4">Nazisme (raciste/antisémite). Homme nouveau Aryen militaire[span_136](start_span)[span_136](end_span)[span_137](start_span)[span_137](end_span).</td>
+                            <td class="p-4">Marxisme-léninisme. Homme nouveau ouvrier/kolkhozienne[span_138](start_span)[span_138](end_span).</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Prise de Pouvoir & Chef</td>
+                            <td class="p-4">Marche sur Rome (1922). Mussolini (<em>Duce</em>)[span_139](start_span)[span_139](end_span)[span_140](start_span)[span_140](end_span)[span_141](start_span)[span_141](end_span).</td>
+                            <td class="p-4">Nommé Chancelier (1933). Hitler (<em>Führer</em>)[span_142](start_span)[span_142](end_span)[span_143](start_span)[span_143](end_span)[span_144](start_span)[span_144](end_span).</td>
+                            <td class="p-4">Éviction des trotskystes (1927). Staline (<em>Vodj</em>)[span_145](start_span)[span_145](end_span)[span_146](start_span)[span_146](end_span)[span_147](start_span)[span_147](end_span).</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Police Politique & Milice</td>
+                            <td class="p-4">OVRA (1927) & Squadristes (Chemises noires)[span_148](start_span)[span_148](end_span).</td>
+                            <td class="p-4">Gestapo (1933) & SA / SS[span_149](start_span)[span_149](end_span).</td>
+                            <td class="p-4">Gépéou puis NKVD (camps du Goulag)[span_150](start_span)[span_150](end_span).</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Embrigadement Jeunesse</td>
+                            <td class="p-4">Balillas (discipline militaire)[span_151](start_span)[span_151](end_span)[span_152](start_span)[span_152](end_span).</td>
+                            <td class="p-4">Jeunesses Hitlériennes (sans éducation critique)[span_153](start_span)[span_153](end_span)[span_154](start_span)[span_154](end_span).</td>
+                            <td class="p-4">Komsomol (formation marxiste-léniniste)[span_155](start_span)[span_155](end_span)[span_156](start_span)[span_156](end_span).</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Actes de Terreur Majeurs</td>
+                            <td class="p-4">Massacre de Graziani en Éthiopie (1937)[span_157](start_span)[span_157](end_span).</td>
+                            <td class="p-4">Nuit des Longs Couteaux (1934), Nuit de Cristal (1938)[span_158](start_span)[span_158](end_span)[span_159](start_span)[span_159](end_span).</td>
+                            <td class="p-4">Famine en Ukraine (1932-33), Grande Terreur (1937-38)[span_160](start_span)[span_160](end_span)[span_161](start_span)[span_161](end_span).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION FLASHCARDS INTERACTIVES -->
+        <section id="sec-flashcards" class="tab-content hidden space-y-6">
+            <div class="glass p-6 rounded-2xl">
+                <h2 class="text-xl font-bold text-white mb-1">Flashcards Mémoire</h2>
+                <p class="text-xs text-slate-400">Cliquez sur une carte pour la retourner et vérifier la définition dans votre mémoire.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="flashcard h-48 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                    <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-2xl">
+                        <div class="absolute w-full h-full bg-slate-900 border border-slate-700 rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+                            <span class="text-xs text-red-400 font-mono">Vocabulaire Totalitarisme</span>
+                            <h3 class="text-lg font-bold text-white text-center">Raymond Aron</h3>
+                            <span class="text-xs text-slate-500 text-center">Cliquez pour voir la définition</span>
+                        </div>
+                        <div class="absolute w-full h-full bg-red-950 border border-red-700 rounded-2xl p-6 flex flex-col justify-center items-center rotate-y-180 backface-hidden text-center">
+                            <p class="text-xs text-slate-200">
+                                Sociologue définissant le régime totalitaire comme une dictature avec emprise totale sur toute la société (sphère privée incluse) réunissant 5 caractéristiques clés[span_162](start_span)[span_162](end_span).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flashcard h-48 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                    <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-2xl">
+                        <div class="absolute w-full h-full bg-slate-900 border border-slate-700 rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+                            <span class="text-xs text-amber-400 font-mono">Allemagne Nazie</span>
+                            <h3 class="text-lg font-bold text-white text-center">La Nuit de Cristal</h3>
+                            <span class="text-xs text-slate-500 text-center">Cliquez pour voir la date & détails</span>
+                        </div>
+                        <div class="absolute w-full h-full bg-amber-950 border border-amber-700 rounded-2xl p-6 flex flex-col justify-center items-center rotate-y-180 backface-hidden text-center">
+                            <p class="text-xs text-slate-200">
+                                <strong>9-10 novembre 1938 :</strong> Pogrom organisé par le régime nazi. Synagogues brûlées, 30 000 Juifs déportés. Début de la violence physique systématique[span_163](start_span)[span_163](end_span)[span_164](start_span)[span_164](end_span).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="flashcard h-48 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                    <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-2xl">
+                        <div class="absolute w-full h-full bg-slate-900 border border-slate-700 rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+                            <span class="text-xs text-red-400 font-mono">URSS Stalinienne</span>
+                            <h3 class="text-lg font-bold text-white text-center">NKVD & Goulag</h3>
+                            <span class="text-xs text-slate-500 text-center">Cliquez pour voir la fonction</span>
+                        </div>
+                        <div class="absolute w-full h-full bg-red-950 border border-red-700 rounded-2xl p-6 flex flex-col justify-center items-center rotate-y-180 backface-hidden text-center">
+                            <p class="text-xs text-slate-200">
+                                <strong>NKVD :</strong> Police politique redoutable d'URSS (succédant au Gépéou) gérant les purges politiques[span_165](start_span)[span_165](end_span).<br>
+                                <strong>Goulag :</strong> Ensemble des camps de travail forcé[span_166](start_span)[span_166](end_span).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="flashcard h-48 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                    <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-2xl">
+                        <div class="absolute w-full h-full bg-slate-900 border border-slate-700 rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+                            <span class="text-xs text-green-400 font-mono">Italie Fasciste</span>
+                            <h3 class="text-lg font-bold text-white text-center">OVRA & Balillas</h3>
+                            <span class="text-xs text-slate-500 text-center">Cliquez pour la signification</span>
+                        </div>
+                        <div class="absolute w-full h-full bg-green-950 border border-green-700 rounded-2xl p-6 flex flex-col justify-center items-center rotate-y-180 backface-hidden text-center">
+                            <p class="text-xs text-slate-200">
+                                <strong>OVRA (1927) :</strong> Police politique fasciste italienne[span_167](start_span)[span_167](end_span).<br>
+                                <strong>Balillas :</strong> Organisation de la jeunesse fasciste italienne axée sur la discipline militaire[span_168](start_span)[span_168](end_span)[span_169](start_span)[span_169](end_span).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="flashcard h-48 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                    <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-2xl">
+                        <div class="absolute w-full h-full bg-slate-900 border border-slate-700 rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+                            <span class="text-xs text-amber-400 font-mono">Allemagne Nazie</span>
+                            <h3 class="text-lg font-bold text-white text-center">Nuit des Longs Couteaux</h3>
+                            <span class="text-xs text-slate-500 text-center">Cliquez pour voir les détails</span>
+                        </div>
+                        <div class="absolute w-full h-full bg-amber-950 border border-amber-700 rounded-2xl p-6 flex flex-col justify-center items-center rotate-y-180 backface-hidden text-center">
+                            <p class="text-xs text-slate-200">
+                                <strong>29-30 juin 1934 :</strong> Assassinat par les SS des chefs de la milice SA (dont Ernst Röhm) sous l'ordre d'Hitler pour purger le parti[span_170](start_span)[span_170](end_span).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="flashcard h-48 perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                    <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-2xl">
+                        <div class="absolute w-full h-full bg-slate-900 border border-slate-700 rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+                            <span class="text-xs text-purple-400 font-mono">Résistance Interne</span>
+                            <h3 class="text-lg font-bold text-white text-center">Putsch d'Erwin von Witzleben</h3>
+                            <span class="text-xs text-slate-500 text-center">Cliquez pour la signification</span>
+                        </div>
+                        <div class="absolute w-full h-full bg-purple-950 border border-purple-700 rounded-2xl p-6 flex flex-col justify-center items-center rotate-y-180 backface-hidden text-center">
+                            <p class="text-xs text-slate-200">
+                                Exemple de la résistance interne en Allemagne : tentative de putsch ratée menée par le maréchal Erwin von Witzleben au sein de l'armée de métier[span_171](start_span)[span_171](end_span).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION QUIZ D'ÉVALUATION -->
+        <section id="sec-quiz" class="tab-content hidden space-y-6">
+            <div class="glass p-6 rounded-2xl flex justify-between items-center">
+                <div>
+                    <h2 class="text-xl font-bold text-white">Quiz de Vérification (Chapitres 1 & 2)</h2>
+                    <p class="text-xs text-slate-400">Testez vos connaissances sur l'ensemble des détails du cours.</p>
+                </div>
+                <div id="quiz-score" class="text-sm font-bold bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300">
+                    Score : - / 5
+                </div>
+            </div>
+
+            <div id="quiz-container" class="space-y-4">
+                <!-- Les questions seront générées dynamiquement par JS -->
+            </div>
+
+            <button onclick="submitQuiz()" class="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition shadow-lg">
+                Valider et Voir le Résultat
+            </button>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+        Site d'étude et de révision autonome — Conforme au programme d'Histoire de Terminale.
+    </footer>
+
+    <!-- SCRIPT JAVASCRIPT -->
+    <script>
+        // Initialiser les icônes Lucide
+        lucide.createIcons();
+
+        // Gestion des Onglets
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-red-600', 'text-white');
+                btn.classList.add('text-slate-400', 'hover:text-white', 'hover:bg-slate-800');
+            });
+
+            document.getElementById(`sec-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.add('bg-red-600', 'text-white');
+            activeBtn.classList.remove('text-slate-400', 'hover:text-white', 'hover:bg-slate-800');
+        }
+
+        // Filtre du tableau comparatif sur mobile
+        function filterTable(country) {
+            const cards = document.querySelectorAll('.comp-card');
+            cards.forEach(card => {
+                if (country === 'all') {
+                    card.classList.remove('hidden');
+                } else {
+                    if (card.classList.contains(`card-${country}`)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        // Retournement des Flashcards
+        function flipCard(card) {
+            const inner = card.querySelector('.card-inner');
+            inner.classList.toggle('rotate-y-180');
+        }
+
+        // Questions du Quiz
+        const quizData = [
+            {
+                q: "1. Selon Raymond Aron, quelle est la définition clé d'un régime totalitaire ?",
+                options: [
+                    "Un régime démocratique avec une forte intervention économique",
+                    "Un régime dictatorial qui a une emprise sur toute la société, y compris la sphère privée",
+                    "Une monarchie constitutionnelle avec un parti unique"
+                ],
+                correct: 1,
+                explanation: "Raymond Aron définit le totalitarisme par l'emprise totale sur la société et la sphère privée à travers 5 piliers[span_172](start_span)[span_172](end_span)."
+            },
+            {
+                q: "2. Quel événement marquant de novembre 1938 matérialise le passage de la discrimination légale à la violence physique contre les Juifs en Allemagne ?",
+                options: [
+                    "Les Lois de Nuremberg",
+                    "La Nuit des Longs Couteaux",
+                    "La Nuit de Cristal"
+                ],
+                correct: 2,
+                explanation: "La Nuit de Cristal (9-10 novembre 1938) est un pogrom d'État entraînant la destruction de synagogues et la déportation de 30 000 Juifs[span_173](start_span)[span_173](end_span)[span_174](start_span)[span_174](end_span)."
+            },
+            {
+                q: "3. Quelle est la police politique secrète mise en place en Italie fasciste à partir de 1927 ?",
+                options: [
+                    "La Gestapo",
+                    "L'OVRA",
+                    "Le NKVD"
+                ],
+                correct: 1,
+                explanation: "L'OVRA est la police politique fasciste italienne créée en 1927 avec 11 inspectorats[span_175](start_span)[span_175](end_span)."
+            },
+            {
+                q: "4. En URSS, comment s'appelle le mouvement de propagande valorisant le travailleur modèle pour augmenter le rendement industriel ?",
+                options: [
+                    "Le Komsomol",
+                    "Le Stakhanovisme",
+                    "Les Kolkhozes"
+                ],
+                correct: 1,
+                explanation: "Le Stakhanovisme valorise le travailleur modèle (référence à Alexeï Stakhanov)[span_176](start_span)[span_176](end_span)[span_177](start_span)[span_177](end_span)."
+            },
+            {
+                q: "5. Laquelle de ces limites montre que l'enracinement du fascisme en Italie était incomplet ?",
+                options: [
+                    "La présence de la Monarchie (le Roi) et du Pape qui limitaient le pouvoir de Mussolini",
+                    "La révolte du maréchal von Witzleben",
+                    "La résilience du Komsomol"
+                ],
+                correct: 0,
+                explanation: "En Italie, le pouvoir de Mussolini était techniquement limité par le Roi et l'influence de l'Église / du Pape[span_178](start_span)[span_178](end_span)[span_179](start_span)[span_179](end_span)."
+            }
+        ];
+
+        // Rendre le Quiz
+        function initQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = quizData.map((item, index) => `
+                <div class="glass p-5 rounded-xl space-y-3">
+                    <p class="font-bold text-sm text-white">${item.q}</p>
+                    <div class="space-y-2">
+                        ${item.options.map((opt, i) => `
+                            <label class="flex items-center space-x-3 text-xs text-slate-300 p-2.5 bg-slate-900/60 rounded-lg border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+                                <input type="radio" name="q${index}" value="${i}" class="text-red-600 focus:ring-0">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div id="feedback-${index}" class="hidden text-xs p-3 rounded-lg border"></div>
+                </div>
+            `).join('');
+        }
+
+        // Soumettre le Quiz
+        function submitQuiz() {
+            let score = 0;
+            quizData.forEach((item, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const feedback = document.getElementById(`feedback-${index}`);
+                feedback.classList.remove('hidden');
+
+                if (selected && parseInt(selected.value) === item.correct) {
+                    score++;
+                    feedback.className = "text-xs p-3 rounded-lg border bg-green-950/40 border-green-700 text-green-300";
+                    feedback.innerHTML = `<strong>Correct !</strong> ${item.explanation}`;
+                } else {
+                    feedback.className = "text-xs p-3 rounded-lg border bg-red-950/40 border-red-700 text-red-300";
+                    feedback.innerHTML = `<strong>Incorrect.</strong> ${item.explanation}`;
+                }
+            });
+
+            document.getElementById('quiz-score').innerText = `Score : ${score} / ${quizData.length}`;
+        }
+
+        // Copier le code HTML dans le presse-papier
+        function copyCode() {
+            const fullCode = document.documentElement.outerHTML;
+            navigator.clipboard.writeText(fullCode).then(() => {
+                alert("Code source copié ! Vous pouvez le coller directement dans votre fichier index.html sur GitHub.");
+            });
+        }
+
+        // Lancer l'initialisation au chargement
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>
